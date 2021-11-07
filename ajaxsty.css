@@ -1,0 +1,10 @@
+*{
+  background-color: #201653;
+  color: #FFFFFF;
+}
+
+div{
+  width: 50%;
+  padding: 10px;
+  line-height: 2;
+}

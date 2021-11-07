@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AJAX</title>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="ajaxsty.css">
+
+</head>
+
+<body>
+	
+  <h1>API Fun</h1>
+  
+  <div class = "apidescrip">
+    <b>Description of API</b><br>
+    The API that I selected was the Metropolitan Museum of Art Collection API. This API returns the ID of every single publically
+    available object in the museum. This is a large collection, so I filtered the objects to objects that are just a part of department one.
+    This was still a large collection of data, so I chose to only display the first 27 available IDs. <br>
+    I found it here: https://metmuseum.github.io/
+  </div><br>
+  
+  <div class = "getAPI">
+    <b>Options I used for API request</b><br>
+    I used a HTTPRequest
+      
+  </div><br>
+  
+  <div class = "functions">
+    <b>Functionality of this API </b>
+    This is a very useful API. The first application of this API is being able to check if a certain art piece is publically available.
+    Because each object has a unique ID, you can also use this API to see which department a particular art piece is in.
+  </div><br>
+  
+  <div class = "data" id = "data">
+    
+  </div>
+  
+  
+	<script language="javascript">
+	$.get( "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=1", 
+			function( data ) {
+			str = JSON.stringify(data);
+      slicedStr = str.slice(0,100);
+      document.getElementById("data").innerHTML = "String of data:<br/>" +  slicedStr +"<br/><br/><br/>";
+			
+			
+	})
+	
+</script>
+
+</body>
+</html>
